@@ -89,8 +89,34 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Video Demo Section */}
       <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <Badge className="mb-4">See It In Action</Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">How GetDropGo Works</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Watch this quick demo to see how easy it is to get your furniture delivered
+            </p>
+          </div>
+          <div className="max-w-4xl mx-auto">
+            <Card className="overflow-hidden">
+              <div className="relative aspect-video bg-muted">
+                <video controls className="w-full h-full" poster="/furniture-delivery-app-demo.jpg">
+                  <source
+                    src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <Badge className="mb-4">Why Choose Us</Badge>
@@ -115,11 +141,11 @@ export default function HomePage() {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-20">
+      <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <Badge className="mb-4">Simple Process</Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">How GetDropGo Works</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Four Easy Steps</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Get your furniture delivered in four easy steps
             </p>
@@ -152,7 +178,7 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <Badge className="mb-4">Testimonials</Badge>
@@ -187,7 +213,7 @@ export default function HomePage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20">
+      <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -200,8 +226,96 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* QR Code Download Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">It's easier in the apps</h2>
+            <p className="text-lg text-muted-foreground">Download GetDropGo on your phone for the best experience</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <Card className="p-8 hover:shadow-lg transition-shadow">
+              <div className="flex items-center gap-6">
+                <div className="flex-shrink-0">
+                  <div className="h-32 w-32 bg-white p-2 rounded-lg shadow-sm">
+                    <Image
+                      src="/qr-code-for-getdropgo-customer-app.jpg"
+                      alt="Download Customer App QR Code"
+                      width={128}
+                      height={128}
+                      className="w-full h-full"
+                    />
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold mb-2">Download the Customer app</h3>
+                  <p className="text-muted-foreground text-sm mb-4">Scan to download</p>
+                  <ArrowRight className="h-5 w-5 text-primary" />
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-8 hover:shadow-lg transition-shadow">
+              <div className="flex items-center gap-6">
+                <div className="flex-shrink-0">
+                  <div className="h-32 w-32 bg-white p-2 rounded-lg shadow-sm">
+                    <Image
+                      src="/qr-code-for-getdropgo-driver-app.jpg"
+                      alt="Download Driver App QR Code"
+                      width={128}
+                      height={128}
+                      className="w-full h-full"
+                    />
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold mb-2">Download the Driver app</h3>
+                  <p className="text-muted-foreground text-sm mb-4">Scan to download</p>
+                  <ArrowRight className="h-5 w-5 text-primary" />
+                </div>
+              </div>
+            </Card>
+          </div>
+
+          {/* App Store Badges */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
+            <a
+              href="https://apps.apple.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block hover:opacity-80 transition-opacity"
+            >
+              <Image
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-10-22%20at%202.18.08%E2%80%AFAM-6MmHPurZ0ZwVB3YKIB1pjdzjhtACfD.png"
+                alt="Download on the App Store"
+                width={160}
+                height={48}
+                className="h-12 w-auto"
+              />
+            </a>
+            <a
+              href="https://play.google.com/store"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block hover:opacity-80 transition-opacity"
+            >
+              <Image
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-10-22%20at%202.18.19%E2%80%AFAM-pa335EuRuJi1soMSu5iJjPww5H8SQu.png"
+                alt="Get it on Google Play"
+                width={540}
+                height={160}
+                className="h-12 w-auto"
+              />
+            </a>
+          </div>
+
+          <p className="text-center text-muted-foreground mt-6">Available on both Play Store and App Store</p>
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="py-20 relative overflow-hidden">
+      <section className="py-20 relative overflow-hidden bg-muted/30">
         <div className="absolute inset-0 gradient-primary opacity-95" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center text-white">
