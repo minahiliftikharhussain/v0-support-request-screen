@@ -1,6 +1,6 @@
 export const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/blogs", label: "Blog" },
+  { href: "/blog", label: "Blog" },
   { href: "/help", label: "Help & Support" },
   { href: "/about", label: "About" },
 ]
@@ -8,7 +8,7 @@ export const NAV_LINKS = [
 export const FOOTER_LINKS = {
   company: [
     { href: "/about", label: "About Us" },
-    { href: "/blogs", label: "Blog" },
+    { href: "/blog", label: "Blog" },
     { href: "/help", label: "Help Center" },
   ],
   legal: [

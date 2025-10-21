@@ -18,7 +18,9 @@ import {
   MessageSquare,
   CreditCard,
   Smartphone,
+  Play,
 } from "lucide-react"
+import { TestimonialsCarousel } from "@/components/testimonials-carousel"
 
 export default function HomePage() {
   return (
@@ -94,24 +96,37 @@ export default function HomePage() {
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <Badge className="mb-4">See It In Action</Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">How GetDropGo Works</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">See It In Action</Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">How GetDropGo Works</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Watch this quick demo to see how easy it is to get your furniture delivered
             </p>
           </div>
-          <div className="max-w-4xl mx-auto">
-            <Card className="overflow-hidden">
-              <div className="relative aspect-video bg-muted">
-                <video controls className="w-full h-full" poster="/furniture-delivery-app-demo.jpg">
+          <div className="max-w-5xl mx-auto">
+            <Card className="overflow-hidden shadow-xl border-2">
+              <div className="relative aspect-video bg-gradient-to-br from-muted to-muted/50">
+                <video
+                  controls
+                  className="w-full h-full object-cover"
+                  poster="/furniture-delivery-app-demo.jpg"
+                  preload="metadata"
+                >
                   <source
                     src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
                 </video>
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <div className="h-20 w-20 rounded-full bg-primary/90 backdrop-blur-sm flex items-center justify-center shadow-2xl">
+                    <Play className="h-10 w-10 text-white ml-1" fill="white" />
+                  </div>
+                </div>
               </div>
             </Card>
+            <p className="text-center text-sm text-muted-foreground mt-4">
+              Click to play • 2 minutes • Learn the basics
+            </p>
           </div>
         </div>
       </section>
@@ -145,35 +160,68 @@ export default function HomePage() {
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <Badge className="mb-4">Simple Process</Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Four Easy Steps</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Get your furniture delivered in four easy steps
+            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Simple Process</Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">How It Works in Four Easy Steps</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Get your furniture delivered quickly and safely with our streamlined process
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {steps.map((step, index) => (
               <div key={index} className="relative">
-                <div className="flex flex-col items-center text-center">
-                  <div className="h-16 w-16 rounded-full gradient-primary text-white flex items-center justify-center text-2xl font-bold mb-4 shadow-lg">
-                    {index + 1}
+                <Card className="p-6 h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                  <div className="flex flex-col items-center text-center">
+                    <div className="h-16 w-16 rounded-full gradient-primary text-white flex items-center justify-center text-2xl font-bold mb-4 shadow-lg">
+                      {index + 1}
+                    </div>
+                    <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                      <step.icon className="h-8 w-8 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{step.description}</p>
                   </div>
-                  <step.icon className="h-12 w-12 text-primary mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{step.description}</p>
-                </div>
+                </Card>
                 {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 left-[60%] w-[80%] h-0.5 bg-gradient-to-r from-primary to-transparent" />
+                  <div className="hidden lg:block absolute top-8 left-[60%] w-[80%] h-0.5 bg-gradient-to-r from-primary via-primary/50 to-transparent z-0" />
                 )}
               </div>
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          {/* Additional Details */}
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
+            <Card className="p-6 text-center">
+              <div className="h-12 w-12 rounded-full bg-success/10 flex items-center justify-center mx-auto mb-4">
+                <Clock className="h-6 w-6 text-success" />
+              </div>
+              <h4 className="font-semibold mb-2">Fast Response</h4>
+              <p className="text-sm text-muted-foreground">Get bids within minutes of posting your job</p>
+            </Card>
+            <Card className="p-6 text-center">
+              <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                <Shield className="h-6 w-6 text-primary" />
+              </div>
+              <h4 className="font-semibold mb-2">Secure & Safe</h4>
+              <p className="text-sm text-muted-foreground">All drivers are verified and insured</p>
+            </Card>
+            <Card className="p-6 text-center">
+              <div className="h-12 w-12 rounded-full bg-warning/10 flex items-center justify-center mx-auto mb-4">
+                <Star className="h-6 w-6 text-warning" />
+              </div>
+              <h4 className="font-semibold mb-2">Top Rated</h4>
+              <p className="text-sm text-muted-foreground">4.9/5 average rating from customers</p>
+            </Card>
+          </div>
+
+          <div className="text-center">
             <Button size="lg" className="gradient-primary text-white" asChild>
-              <Link href="/signup">Start Your First Delivery</Link>
+              <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer">
+                Start Your First Delivery
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </a>
             </Button>
+            <p className="text-sm text-muted-foreground mt-4">No credit card required • Free to post jobs</p>
           </div>
         </div>
       </section>
@@ -189,27 +237,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="p-6">
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-warning text-warning" />
-                  ))}
-                </div>
-                <p className="text-muted-foreground leading-relaxed mb-6">{testimonial.content}</p>
-                <div className="flex items-center gap-3">
-                  <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center font-semibold text-primary">
-                    {testimonial.name.charAt(0)}
-                  </div>
-                  <div>
-                    <p className="font-semibold">{testimonial.name}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
+          <TestimonialsCarousel />
         </div>
       </section>
 
@@ -227,74 +255,90 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* App Download Section */}
       <section className="py-20 bg-gradient-to-b from-background to-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">It's easier in the apps</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Download GetDropGo on your phone for the best experience
+            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Mobile Apps</Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">It's easier in the apps</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Download GetDropGo on your phone for the best experience. Available on both Play Store and App Store.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-12">
-            <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden border-2 hover:border-primary/20">
+            <Card className="group hover:shadow-2xl transition-all duration-300 overflow-hidden border-2 hover:border-primary/30 bg-gradient-to-br from-background to-muted/20">
               <div className="p-8 md:p-10">
-                <div className="flex flex-col sm:flex-row items-center gap-6">
+                <div className="flex flex-col sm:flex-row items-center gap-8">
                   <div className="flex-shrink-0">
-                    <div className="h-36 w-36 bg-white p-3 rounded-2xl shadow-md group-hover:shadow-lg transition-shadow">
-                      <Image
-                        src="/qr-code-for-getdropgo-customer-app.jpg"
-                        alt="Download Customer App QR Code"
-                        width={144}
-                        height={144}
-                        className="w-full h-full rounded-lg"
-                      />
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-primary/20 blur-2xl rounded-full" />
+                      <div className="relative h-40 w-40 bg-white p-4 rounded-3xl shadow-xl group-hover:shadow-2xl group-hover:scale-105 transition-all duration-300">
+                        <Image
+                          src="/qr-code-for-getdropgo-customer-app.jpg"
+                          alt="Download Customer App QR Code"
+                          width={160}
+                          height={160}
+                          className="w-full h-full rounded-2xl"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div className="flex-1 text-center sm:text-left">
-                    <div className="flex items-center gap-2 justify-center sm:justify-start mb-2">
-                      <Smartphone className="h-5 w-5 text-primary" />
-                      <Badge variant="secondary" className="text-xs">
+                    <div className="flex items-center gap-2 justify-center sm:justify-start mb-3">
+                      <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
+                        <Smartphone className="h-5 w-5 text-primary" />
+                      </div>
+                      <Badge variant="secondary" className="text-xs font-semibold">
                         For Customers
                       </Badge>
                     </div>
-                    <h3 className="text-2xl font-bold mb-2">Download the Customer app</h3>
-                    <p className="text-muted-foreground mb-4">Scan to download</p>
-                    <div className="flex items-center gap-2 text-primary font-medium group-hover:gap-3 transition-all">
-                      <span>Get the app</span>
-                      <ArrowRight className="h-5 w-5" />
+                    <h3 className="text-2xl md:text-3xl font-bold mb-2">Download the Customer app</h3>
+                    <p className="text-muted-foreground mb-6 text-sm">
+                      Scan the QR code to download and start posting delivery jobs
+                    </p>
+                    <div className="flex items-center gap-2 text-primary font-semibold group-hover:gap-3 transition-all">
+                      <span>Get the app now</span>
+                      <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
                 </div>
               </div>
             </Card>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden border-2 hover:border-primary/20">
+            <Card className="group hover:shadow-2xl transition-all duration-300 overflow-hidden border-2 hover:border-primary/30 bg-gradient-to-br from-background to-muted/20">
               <div className="p-8 md:p-10">
-                <div className="flex flex-col sm:flex-row items-center gap-6">
+                <div className="flex flex-col sm:flex-row items-center gap-8">
                   <div className="flex-shrink-0">
-                    <div className="h-36 w-36 bg-white p-3 rounded-2xl shadow-md group-hover:shadow-lg transition-shadow">
-                      <Image
-                        src="/qr-code-for-getdropgo-driver-app.jpg"
-                        alt="Download Driver App QR Code"
-                        width={144}
-                        height={144}
-                        className="w-full h-full rounded-lg"
-                      />
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-primary/20 blur-2xl rounded-full" />
+                      <div className="relative h-40 w-40 bg-white p-4 rounded-3xl shadow-xl group-hover:shadow-2xl group-hover:scale-105 transition-all duration-300">
+                        <Image
+                          src="/qr-code-for-getdropgo-driver-app.jpg"
+                          alt="Download Driver App QR Code"
+                          width={160}
+                          height={160}
+                          className="w-full h-full rounded-2xl"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div className="flex-1 text-center sm:text-left">
-                    <div className="flex items-center gap-2 justify-center sm:justify-start mb-2">
-                      <Truck className="h-5 w-5 text-primary" />
-                      <Badge variant="secondary" className="text-xs">
+                    <div className="flex items-center gap-2 justify-center sm:justify-start mb-3">
+                      <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
+                        <Truck className="h-5 w-5 text-primary" />
+                      </div>
+                      <Badge variant="secondary" className="text-xs font-semibold">
                         For Drivers
                       </Badge>
                     </div>
-                    <h3 className="text-2xl font-bold mb-2">Download the Driver app</h3>
-                    <p className="text-muted-foreground mb-4">Scan to download</p>
-                    <div className="flex items-center gap-2 text-primary font-medium group-hover:gap-3 transition-all">
-                      <span>Get the app</span>
-                      <ArrowRight className="h-5 w-5" />
+                    <h3 className="text-2xl md:text-3xl font-bold mb-2">Download the Driver app</h3>
+                    <p className="text-muted-foreground mb-6 text-sm">
+                      Scan the QR code to download and start earning with deliveries
+                    </p>
+                    <div className="flex items-center gap-2 text-primary font-semibold group-hover:gap-3 transition-all">
+                      <span>Get the app now</span>
+                      <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
                 </div>
@@ -303,20 +347,20 @@ export default function HomePage() {
           </div>
 
           <div className="text-center">
-            <p className="text-sm text-muted-foreground mb-6">Available on both Play Store and App Store</p>
+            <p className="text-muted-foreground mb-6 font-medium">Available on both Play Store and App Store</p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <a
                 href="https://apps.apple.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block hover:opacity-80 transition-opacity"
+                className="inline-block hover:opacity-80 transition-opacity hover:scale-105 transform duration-200"
               >
-                <div className="h-14 px-6 rounded-xl bg-foreground text-background flex items-center gap-3 hover:bg-foreground/90 transition-colors">
+                <div className="h-14 px-6 rounded-xl bg-foreground text-background flex items-center gap-3 hover:bg-foreground/90 transition-colors shadow-lg">
                   <svg className="h-8 w-8" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
                   </svg>
                   <div className="text-left">
-                    <div className="text-xs">Download on the</div>
+                    <div className="text-xs opacity-90">Download on the</div>
                     <div className="text-lg font-semibold -mt-1">App Store</div>
                   </div>
                 </div>
@@ -325,14 +369,14 @@ export default function HomePage() {
                 href="https://play.google.com/store"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block hover:opacity-80 transition-opacity"
+                className="inline-block hover:opacity-80 transition-opacity hover:scale-105 transform duration-200"
               >
-                <div className="h-14 px-6 rounded-xl bg-foreground text-background flex items-center gap-3 hover:bg-foreground/90 transition-colors">
+                <div className="h-14 px-6 rounded-xl bg-foreground text-background flex items-center gap-3 hover:bg-foreground/90 transition-colors shadow-lg">
                   <svg className="h-8 w-8" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
                   </svg>
                   <div className="text-left">
-                    <div className="text-xs">GET IT ON</div>
+                    <div className="text-xs opacity-90">GET IT ON</div>
                     <div className="text-lg font-semibold -mt-1">Google Play</div>
                   </div>
                 </div>
@@ -347,17 +391,17 @@ export default function HomePage() {
         <div className="absolute inset-0 gradient-primary opacity-95" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center text-white">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Get Your Furniture Delivered?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">Ready to Get Your Furniture Delivered?</h2>
             <p className="text-lg text-white/90 mb-8 leading-relaxed">
               Join thousands of satisfied customers. Post your first delivery job today and experience the GetDropGo
               difference.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary" asChild>
-                <Link href="/signup">
+                <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer">
                   Get Started Free
                   <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
+                </a>
               </Button>
               <Button
                 size="lg"
@@ -365,7 +409,7 @@ export default function HomePage() {
                 className="bg-white/10 border-white/20 text-white hover:bg-white/20"
                 asChild
               >
-                <Link href="/contact">Contact Sales</Link>
+                <Link href="/help">Contact Sales</Link>
               </Button>
             </div>
           </div>

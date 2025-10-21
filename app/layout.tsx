@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { Navbar } from "@/components/layout/navbar"
 import { Footer } from "@/components/layout/footer"
 import "./globals.css"
+import "./blog/blog-styles.css"
 
 const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
@@ -63,7 +64,7 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   manifest: "/site.webmanifest",
-    generator: 'v0.app'
+  generator: "v0.app",
 }
 
 export default function RootLayout({

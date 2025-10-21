@@ -23,6 +23,10 @@ export function Navbar() {
     window.location.href = "https://play.google.com/store"
   }
 
+  const handleSignupClick = () => {
+    window.location.href = "https://play.google.com/store"
+  }
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -61,8 +65,8 @@ export function Navbar() {
             <Button variant="ghost" onClick={handleLoginClick}>
               Log In
             </Button>
-            <Button className="gradient-primary text-white" asChild>
-              <Link href="/signup">Get Started</Link>
+            <Button className="gradient-primary text-white" onClick={handleSignupClick}>
+              Get Started
             </Button>
           </div>
 
@@ -94,8 +98,8 @@ export function Navbar() {
                 <Button variant="outline" onClick={handleLoginClick}>
                   Log In
                 </Button>
-                <Button className="gradient-primary text-white" asChild>
-                  <Link href="/signup">Get Started</Link>
+                <Button className="gradient-primary text-white" onClick={handleSignupClick}>
+                  Get Started
                 </Button>
               </div>
             </div>
