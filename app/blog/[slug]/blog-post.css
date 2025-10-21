@@ -1,0 +1,50 @@
+/* Blog post prose styles */
+.prose {
+  color: var(--color-foreground);
+}
+
+.prose h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--color-foreground);
+}
+
+.prose h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-foreground);
+}
+
+.prose p {
+  margin-bottom: 1.25rem;
+  color: var(--color-muted-foreground);
+}
+
+.prose ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
+  color: var(--color-muted-foreground);
+}
+
+.prose strong {
+  font-weight: 600;
+  color: var(--color-foreground);
+}
+
+.prose a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.prose a:hover {
+  color: var(--color-primary-dark);
+}
